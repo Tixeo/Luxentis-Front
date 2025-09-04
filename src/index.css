@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --background: 0 0% 7%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 12%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 12%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 45 89% 49%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 65%;
+  --accent: 45 89% 49%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 15%;
+  --input: 0 0% 15%;
+  --ring: 45 89% 49%;
+  --radius: 0.75rem;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+
+:root {
+ 
+  --bg-primary: #121212;
+  --bg-secondary: #1E1E1E;
+  --border-color: #2A2A2A;
+  --text-primary: #FFFFFF;
+  --text-secondary: #9A9A9A;
+  --text-muted: #767676;
+  --accent-color: #F0B90B;
+  --inactive-bg: #2A2A2A;
+  --inactive-text: #FFFFFF;
+}
+
+
+body.light-theme {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #FFFFFF;
+  --border-color: #E9E9E9;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --inactive-bg: #F0F0F0;
+  --inactive-text: #666666;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+
+.gradient-text {
+  background: linear-gradient(90deg, #F0B90B 0%, #FCD535 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+.shiny-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.shiny-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.shiny-button:hover::before {
+  animation: shine 1.5s ease-in-out infinite;
+  opacity: 1;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+
+[data-state="active"].tab-yellow {
+  background-color: #F0B90B !important;
+  color: #000 !important;
+}
+
+body.dark-theme .dialog-offer-summary {
+  background: #232323 !important;
+  color: #fff !important;
+}
+body.light-theme .dialog-offer-summary {
+  background: #F5F5F5 !important;
+  color: #333 !important;
+}
+body.dark-theme .dialog-offer-summary span {
+  color: #fff !important;
+}
+body.light-theme .dialog-offer-summary span {
+  color: #333 !important;
+}
+body.dark-theme .dialog-offer-summary .label {
+  color: #bbb !important;
+}
+body.light-theme .dialog-offer-summary .label {
+  color: #666 !important;
+}
